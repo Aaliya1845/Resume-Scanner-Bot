@@ -1,0 +1,10 @@
+streamlit
+PyPDF2
+scikit-learn
+nltk
+plotly
+matplotlib
+wordcloud
+pandas
+numpy
+reportlab
