@@ -1,0 +1,34 @@
+Resume Job Scanner
+
+│
+├── User uploads Resume (PDF)
+│
+├── PDF Text Extraction (PyPDF2)
+│       │
+│       └── Extract Resume Text
+│
+├── User enters Job Description
+│
+├── Text Preprocessing
+│       ├── Convert to Lowercase
+│       ├── Remove Special Characters
+│       └── Clean Text
+│
+├── Feature Extraction
+│       └── CountVectorizer
+│
+├── Similarity Calculation
+│       └── Cosine Similarity
+│
+├── Match Percentage
+│       │
+│       ├── Eligible (≥60%)
+│       ├── Partially Eligible (40–59%)
+│       └── Not Eligible (<40%)
+│
+├── Missing Skills Detection
+│
+└── Display Final Result
+        ├── Match Percentage
+        ├── Eligibility Status
+        └── Missing Skills
