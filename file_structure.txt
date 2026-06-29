@@ -1,0 +1,34 @@
+Resume_Job_Scanner/
+│
+├── app.py                      # Main Streamlit application
+├── requirements.txt            # Project dependencies
+├── README.md                   # Project documentation
+├── LICENSE                     # License file (optional)
+├── .gitignore                  # Git ignored files
+│
+├── assets/
+│   ├── logo.png
+│   └── banner.png
+│
+├── sample_files/
+│   ├── sample_resume.pdf
+│   └── sample_job_description.txt
+│
+├── utils/
+│   ├── __init__.py
+│   ├── pdf_reader.py           # PDF extraction functions
+│   ├── text_cleaner.py         # Text preprocessing
+│   ├── similarity.py           # Cosine similarity logic
+│   └── skill_match.py          # Missing skills detection
+│
+├── docs/
+│   ├── IEEE_Paper.pdf
+│   ├── Project_Report.pdf
+│   └── Screenshots/
+│       ├── home_page.png
+│       ├── upload_resume.png
+│       └── result_page.png
+│
+└── tests/
+    ├── test_similarity.py
+    └── test_pdf_reader.py
