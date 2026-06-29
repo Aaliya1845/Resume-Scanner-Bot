@@ -19,7 +19,7 @@ def extract_text_from_pdf(uploaded_file):
     text = ""
 
     try:
-        pdf_reader = PyPDF2.PdfReader(uploaded_file)
+        pdf_reader = PdfReader(uploaded_file)
 
         for page in pdf_reader.pages:
             page_text = page.extract_text()
@@ -47,7 +47,7 @@ def get_pdf_statistics(uploaded_file):
     try:
         uploaded_file.seek(0)
 
-        pdf = PyPDF2.PdfReader(uploaded_file)
+        pdf = PdfReader(uploaded_file)
 
         stats["pages"] = len(pdf.pages)
 
@@ -71,7 +71,7 @@ def validate_pdf(uploaded_file):
     """
 
     try:
-        pdf = PyPDF2.PdfReader(uploaded_file)
+        pdf = PdfReader(uploaded_file)
 
         if len(pdf.pages) == 0:
             return False, "PDF has no pages."
