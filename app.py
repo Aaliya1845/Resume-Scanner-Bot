@@ -23,17 +23,17 @@ from utils.suggestions import (
 )
 from utils.report_generator import generate_pdf_report
 
-st.set_page_config(page_title="Resume Job Scanner V2", layout="wide")
+st.set_page_config(page_title="Resume Scanner Bot", layout="wide")
 
 if os.path.exists("style.css"):
     with open("style.css","r",encoding="utf-8") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-st.markdown('<div class="main-title">Resume Job Scanner V2</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-title">Resume Scanner Bot V2</div>', unsafe_allow_html=True)
 st.markdown('<div class="sub-title">AI Powered ATS Resume Analyzer</div>', unsafe_allow_html=True)
 
 with st.sidebar:
-    st.header("Resume Job Scanner")
+    st.header("Resume Scanner Bot")
     st.write("Upload a resume, paste a job description and generate an ATS style report.")
 
 resume_file = st.file_uploader("Upload Resume (PDF)", type=["pdf"])
