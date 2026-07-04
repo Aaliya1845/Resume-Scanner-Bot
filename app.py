@@ -29,7 +29,7 @@ if os.path.exists("style.css"):
     with open("style.css","r",encoding="utf-8") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-st.markdown('<div class="main-title">Resume Scanner Bot V2</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-title">Resume Scanner Bot </div>', unsafe_allow_html=True)
 st.markdown('<div class="sub-title">AI Powered ATS Resume Analyzer</div>', unsafe_allow_html=True)
 
 with st.sidebar:
