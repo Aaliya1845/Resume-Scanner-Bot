@@ -166,7 +166,7 @@ if st.button(
     st.success(predicted_role)
 
     st.divider()
-        st.subheader("✅ Matched Skills")
+    st.subheader("✅ Matched Skills")
 
     if analysis["matched_keywords"]:
 
