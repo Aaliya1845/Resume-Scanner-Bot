@@ -1,12 +1,14 @@
-/* ================================
-   Resume Scanner Bot Theme
-================================ */
+/* ==========================================
+   Resume Scanner Bot - Professional Theme
+========================================== */
 
 .stApp {
-    background: #EAF6FF;
+    background: #2B1E1A;
+    color: #F5F5F5;
 }
 
-/* Hide Streamlit Menu & Footer */
+/* Hide Streamlit Branding */
+
 #MainMenu {
     visibility: hidden;
 }
@@ -19,15 +21,15 @@ header {
     visibility: hidden;
 }
 
-/* ================================
-   Title
-================================ */
+/* ==========================================
+   Main Title
+========================================== */
 
 .main-title {
     text-align: center;
     font-size: 42px;
     font-weight: bold;
-    color: #005B96;
+    color: #FFD54F;
     margin-top: 10px;
     margin-bottom: 5px;
 }
@@ -35,135 +37,185 @@ header {
 .sub-title {
     text-align: center;
     font-size: 18px;
-    color: #4F6D7A;
-    margin-bottom: 30px;
+    color: #90CAF9;
+    margin-bottom: 25px;
 }
 
-/* ================================
+/* ==========================================
    Sidebar
-================================ */
+========================================== */
 
 section[data-testid="stSidebar"] {
-    background-color: #D9F3FF;
+    background: #3A2722;
+    border-right: 2px solid #42A5F5;
 }
 
-section[data-testid="stSidebar"] h1,
-section[data-testid="stSidebar"] h2,
-section[data-testid="stSidebar"] h3 {
-    color: #005B96;
+section[data-testid="stSidebar"] * {
+    color: white;
 }
 
-/* ================================
-   Cards
-================================ */
+/* ==========================================
+   Headings
+========================================== */
 
-[data-testid="stMetric"] {
-    background: white;
-    border-radius: 15px;
-    padding: 15px;
-    box-shadow: 0px 3px 12px rgba(0,0,0,0.12);
-    border-left: 6px solid #29B6F6;
+h1,
+h2,
+h3,
+h4 {
+    color: #FFD54F;
 }
 
-/* ================================
-   File Upload
-================================ */
+/* ==========================================
+   File Uploader
+========================================== */
 
 [data-testid="stFileUploader"] {
-    background: white;
-    border-radius: 12px;
-    padding: 12px;
+    background: #40302B;
+    border: 2px dashed #42A5F5;
+    border-radius: 15px;
+    padding: 15px;
 }
 
-/* ================================
+/* ==========================================
    Text Area
-================================ */
+========================================== */
 
 textarea {
-    background: white !important;
+    background: #40302B !important;
+    color: white !important;
+    border: 2px solid #42A5F5 !important;
     border-radius: 10px !important;
 }
 
-/* ================================
-   Buttons
-================================ */
+/* ==========================================
+   Input Boxes
+========================================== */
+
+input {
+    background: #40302B !important;
+    color: white !important;
+}
+
+/* ==========================================
+   Button
+========================================== */
 
 .stButton > button {
 
-    background-color: #FFD54F;
+    background: #FFD54F;
     color: black;
-
-    border: none;
-    border-radius: 12px;
-
-    width: 100%;
-    height: 50px;
 
     font-size: 18px;
     font-weight: bold;
+
+    border-radius: 12px;
+    border: none;
+
+    width: 100%;
+    height: 52px;
 
     transition: 0.3s;
 }
 
 .stButton > button:hover {
 
-    background-color: #FFC107;
+    background: #FFC107;
 
     color: black;
 
-    transform: scale(1.02);
+    transform: scale(1.03);
+
 }
 
-/* ================================
-   Success
-================================ */
+/* ==========================================
+   Metric Cards
+========================================== */
+
+[data-testid="stMetric"] {
+
+    background: #40302B;
+
+    border-left: 6px solid #42A5F5;
+
+    border-radius: 15px;
+
+    padding: 15px;
+
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
+
+}
+
+/* ==========================================
+   Success Message
+========================================== */
 
 div[data-baseweb="notification"] {
 
-    border-radius: 10px;
+    background: #40302B;
+
+    color: white;
+
+    border-left: 5px solid #66BB6A;
 
 }
 
-/* ================================
-   Expanders
-================================ */
+/* ==========================================
+   Expander
+========================================== */
 
 details {
 
-    background: white;
+    background: #40302B;
 
     border-radius: 12px;
 
-    padding: 10px;
+    padding: 12px;
+
+    color: white;
 
 }
 
-/* ================================
-   Headings
-================================ */
-
-h1,
-h2,
-h3,
-h4 {
-
-    color: #005B96;
-
-}
-
-/* ================================
+/* ==========================================
    Tables
-================================ */
+========================================== */
 
 table {
 
-    background: white;
+    background: #40302B;
+
+    color: white;
 
 }
 
-/* ================================
+th {
+
+    background: #1565C0;
+
+    color: white;
+
+}
+
+td {
+
+    background: #4A3832;
+
+    color: white;
+
+}
+
+/* ==========================================
+   Progress Bar
+========================================== */
+
+.stProgress > div > div {
+
+    background: #42A5F5;
+
+}
+
+/* ==========================================
    Markdown Blocks
-================================ */
+========================================== */
 
 .element-container {
 
@@ -171,9 +223,9 @@ table {
 
 }
 
-/* ================================
+/* ==========================================
    Scrollbar
-================================ */
+========================================== */
 
 ::-webkit-scrollbar {
 
@@ -183,20 +235,84 @@ table {
 
 ::-webkit-scrollbar-track {
 
-    background: #D9F3FF;
+    background: #2B1E1A;
 
 }
 
 ::-webkit-scrollbar-thumb {
 
-    background: #64B5F6;
+    background: #42A5F5;
 
-    border-radius: 10px;
+    border-radius: 20px;
 
 }
 
 ::-webkit-scrollbar-thumb:hover {
 
+    background: #1E88E5;
+
+}
+
+/* ==========================================
+   Horizontal Line
+========================================== */
+
+hr {
+
+    border: 1px solid #42A5F5;
+
+}
+
+/* ==========================================
+   Links
+========================================== */
+
+a {
+
+    color: #FFD54F;
+
+}
+
+a:hover {
+
+    color: #42A5F5;
+
+}
+
+/* ==========================================
+   Download Button
+========================================== */
+
+.stDownloadButton > button {
+
     background: #42A5F5;
+
+    color: white;
+
+    border-radius: 12px;
+
+    border: none;
+
+    font-weight: bold;
+
+}
+
+.stDownloadButton > button:hover {
+
+    background: #1565C0;
+
+}
+
+/* ==========================================
+   ATS Gauge Container
+========================================== */
+
+.js-plotly-plot {
+
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 10px;
 
 }
