@@ -1,615 +1,309 @@
-/* =====================================================
-   Resume Scanner Bot - Premium UI Final Version
-   Gradient + White Cards + Text Visibility Fixed
-===================================================== */
+/* ==========================================
+   Resume Scanner Bot - Premium UI
+========================================== */
 
-
-/* =========================
-   APP BACKGROUND
-========================= */
-
-.stApp {
-
-    background: linear-gradient(
-        135deg,
-        #F8BBD0,
-        #E1BEE7,
-        #BBDEFB
-    );
-
-    font-family: "Segoe UI", sans-serif;
-
+.stApp{
+    background: linear-gradient(135deg,#F8BBD0,#E1BEE7,#BBDEFB);
+    color:#212121;
 }
 
+/* Hide Streamlit */
 
-
-/* =========================
-   HIDE STREAMLIT ELEMENTS
-========================= */
-
-
-#MainMenu {
+#MainMenu{
     visibility:hidden;
 }
 
-
-header {
+footer{
     visibility:hidden;
 }
 
-
-footer {
+header{
     visibility:hidden;
 }
 
+/* Container */
 
-
-/* =========================
-   MAIN CONTAINER
-========================= */
-
-
-.block-container {
-
+.block-container{
     padding-top:2rem;
-
-    padding-bottom:3rem;
-
+    padding-bottom:2rem;
 }
 
+/* ==========================================
+   Main Title
+========================================== */
 
-
-/* =========================
-   GLOBAL TEXT FIX
-========================= */
-
-
-.stApp * {
-
-    color:#111111;
-
-}
-
-
-
-p, span, label, div {
-
-    color:#111111;
-
-}
-
-
-
-/* =========================
-   TITLE
-========================= */
-
-
-.main-title {
+.main-title{
 
     text-align:center;
 
-    font-size:45px;
-
-    font-weight:900;
-
-    color:#1565C0 !important;
-
-}
-
-
-
-.sub-title {
-
-    text-align:center;
-
-    font-size:20px;
-
-    color:#6A1B9A !important;
-
-    margin-bottom:30px;
-
-}
-
-
-
-/* =========================
-   SIDEBAR
-========================= */
-
-
-section[data-testid="stSidebar"] {
-
-    background:white;
-
-    border-right:5px solid #1565C0;
-
-}
-
-
-section[data-testid="stSidebar"] * {
-
-    color:#111111 !important;
-
-}
-
-
-
-/* =========================
-   HEADINGS
-========================= */
-
-
-h1,h2,h3,h4,h5 {
-
-    color:#FFD54F !important;
+    font-size:42px;
 
     font-weight:800;
 
-}
+    color:#1565C0;
 
-
-
-/* =========================
-   ALL CARDS
-========================= */
-
-
-div[data-testid="stVerticalBlockBorderWrapper"],
-
-div[data-testid="stExpander"],
-
-div[data-testid="stMetric"],
-
-.element-container {
-
-
-    background:white !important;
-
-
-    border-radius:20px;
-
-
-    border:2px solid black;
-
-
-    padding:18px;
-
-
-    box-shadow:
-    0px 8px 25px rgba(0,0,0,0.18);
-
+    margin-bottom:8px;
 
 }
 
+.sub-title{
 
+    text-align:center;
 
-/* Card Content Visibility */
-
-
-div[data-testid="stVerticalBlockBorderWrapper"] *,
-div[data-testid="stExpander"] *,
-div[data-testid="stMetric"] *,
-.element-container * {
-
-
-    color:#111111 !important;
-
-}
-
-
-
-/* =========================
-   RESUME RESULT CARD
-========================= */
-
-
-.resume-card {
-
-
-    background:white;
-
-
-    color:#111111 !important;
-
-
-    border:3px solid black;
-
-
-    border-radius:20px;
-
-
-    padding:25px;
-
-
-    margin:20px 0;
-
-
-    box-shadow:
-    0px 10px 30px rgba(0,0,0,0.20);
-
-
-}
-
-
-
-.resume-card h1,
-.resume-card h2,
-.resume-card h3,
-.resume-card p,
-.resume-card span,
-.resume-card li {
-
-
-    color:#111111 !important;
-
-}
-
-
-
-/* =========================
-   FILE UPLOADER
-========================= */
-
-
-[data-testid="stFileUploader"] {
-
-
-    background:white !important;
-
-
-    border:3px dashed #1976D2;
-
-
-    border-radius:20px;
-
-
-    padding:20px;
-
-
-}
-
-
-
-[data-testid="stFileUploader"] * {
-
-
-    color:#111111 !important;
-
-}
-
-
-
-/* =========================
-   TEXT AREA
-========================= */
-
-
-textarea {
-
-
-    background:white !important;
-
-
-    color:#111111 !important;
-
-
-    border:2px solid #1565C0 !important;
-
-
-    border-radius:15px !important;
-
-
-    font-size:16px;
-
-}
-
-
-
-textarea::placeholder {
-
-
-    color:#666666 !important;
-
-}
-
-
-
-/* =========================
-   INPUT BOX
-========================= */
-
-
-input {
-
-
-    background:white !important;
-
-
-    color:#111111 !important;
-
-
-    border-radius:12px !important;
-
-
-}
-
-
-
-/* =========================
-   BUTTONS
-========================= */
-
-
-.stButton > button {
-
-
-    background:black !important;
-
-
-    color:white !important;
-
-
-    width:100%;
-
-
-    height:55px;
-
-
-    border-radius:15px;
-
+    color:#6A1B9A;
 
     font-size:18px;
 
-
-    font-weight:800;
-
-
-    border:none;
-
+    margin-bottom:25px;
 
 }
 
+/* ==========================================
+   Sidebar
+========================================== */
 
+section[data-testid="stSidebar"]{
 
-.stButton > button:hover {
+    background:#ffffff;
 
-
-    background:#333333 !important;
-
-
-    transform:scale(1.03);
-
-
-}
-
-
-
-/* =========================
-   DOWNLOAD BUTTON
-========================= */
-
-
-.stDownloadButton > button {
-
-
-    background:black !important;
-
-
-    color:white !important;
-
-
-    border-radius:15px;
-
-
-    font-weight:bold;
-
+    border-right:4px solid #1976D2;
 
 }
 
+section[data-testid="stSidebar"] *{
 
-
-.stDownloadButton > button:hover {
-
-
-    background:#333333 !important;
-
+    color:#212121;
 
 }
 
+/* ==========================================
+   Headings
+========================================== */
 
+h1,h2,h3,h4{
 
-/* =========================
-   METRIC BOX
-========================= */
+    color:#FFD54F;
 
-
-[data-testid="stMetric"] {
-
-
-    background:white !important;
-
+    font-weight:700;
 
 }
 
+/* ==========================================
+   White Cards
+========================================== */
 
-
-[data-testid="stMetricValue"] {
-
-
-    color:#1565C0 !important;
-
-
-    font-size:35px;
-
-
-    font-weight:900;
-
-
-}
-
-
-
-[data-testid="stMetricLabel"] {
-
-
-    color:#111111 !important;
-
-
-}
-
-
-
-/* =========================
-   EXPANDER
-========================= */
-
-
-details {
-
-
-    background:white !important;
-
-
-    border:2px solid black;
-
-
-    border-radius:15px;
-
-
-    padding:15px;
-
-
-}
-
-
-
-details * {
-
-
-    color:#111111 !important;
-
-}
-
-
-
-/* =========================
-   AI OUTPUT BOX
-========================= */
-
-
-.ai-box {
-
+[data-testid="stMetric"]{
 
     background:white;
 
+    border-radius:18px;
 
-    border-left:8px solid #6A1B9A;
+    padding:20px;
 
+    border:2px solid black;
 
-    border-radius:20px;
-
-
-    padding:25px;
-
-
-    box-shadow:
-    0px 10px 25px rgba(0,0,0,0.20);
-
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
 
 }
 
+/* ==========================================
+   Upload Box
+========================================== */
 
+[data-testid="stFileUploader"]{
 
-.ai-box * {
+    background:white;
 
-
-    color:#111111 !important;
-
-}
-
-
-
-/* =========================
-   TABLES
-========================= */
-
-
-table {
-
-
-    background:white !important;
-
+    border:2px dashed #1976D2;
 
     border-radius:15px;
 
+    padding:18px;
 
 }
 
+/* ==========================================
+   Text Area
+========================================== */
 
-
-th {
-
-
-    background:#1976D2 !important;
-
-
-    color:white !important;
-
-
-}
-
-
-
-td {
-
+textarea{
 
     background:white !important;
 
+    color:black !important;
 
-    color:#111111 !important;
+    border:2px solid #1976D2 !important;
 
+    border-radius:12px !important;
 
 }
 
+/* ==========================================
+   Input Box
+========================================== */
 
+input{
 
-/* =========================
-   ALERTS
-========================= */
+    background:white !important;
 
+    color:black !important;
 
-div[data-baseweb="notification"] {
+}
 
+/* ==========================================
+   Buttons
+========================================== */
+
+.stButton>button{
+
+    background:black;
+
+    color:white;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    width:100%;
+
+    height:52px;
+
+    transition:0.3s;
+
+}
+
+.stButton>button:hover{
+
+    background:#333333;
+
+    transform:scale(1.02);
+
+}
+
+/* ==========================================
+   Download Button
+========================================== */
+
+.stDownloadButton>button{
+
+    background:black;
+
+    color:white;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+}
+
+.stDownloadButton>button:hover{
+
+    background:#333333;
+   /* ==========================================
+   Resume Cards
+========================================== */
+
+.resume-card{
+
+    background:white;
+
+    color:black;
+
+    border-radius:18px;
+
+    border:2px solid black;
+
+    padding:20px;
+
+    margin-top:15px;
+
+    margin-bottom:15px;
+
+    box-shadow:0px 8px 20px rgba(0,0,0,0.15);
+
+}
+
+/* ==========================================
+   Expander
+========================================== */
+
+details{
+
+    background:white;
+
+    color:black;
 
     border-radius:15px;
 
+    border:2px solid black;
+
+    padding:12px;
+
+    margin-top:10px;
 
 }
 
+/* ==========================================
+   Success Message
+========================================== */
 
-div[data-baseweb="notification"] * {
+div[data-baseweb="notification"]{
 
-
-    color:#111111 !important;
-
+    border-radius:12px;
 
 }
 
+/* ==========================================
+   Divider
+========================================== */
 
-
-/* =========================
-   DIVIDER
-========================= */
-
-
-hr {
-
+hr{
 
     border:1px solid #1976D2;
 
+    margin-top:20px;
 
-    margin:20px 0;
+    margin-bottom:20px;
 
+}
+
+/* ==========================================
+   Tables
+========================================== */
+
+table{
+
+    background:white;
+
+    color:black;
+
+    border-radius:12px;
+
+}
+
+th{
+
+    background:#1976D2;
+
+    color:white;
+
+}
+
+td{
+
+    background:#FFFFFF;
+
+    color:black;
+
+}
+
+/* ==========================================
+   Resume
 
 }
