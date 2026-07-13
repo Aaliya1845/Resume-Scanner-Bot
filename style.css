@@ -1,32 +1,36 @@
-/* =========================================
-   Resume Scanner Bot - Premium Theme
-========================================= */
+/* ==========================================
+   Resume Scanner Bot - Premium UI
+========================================== */
 
-.stApp {
-
-    background: linear-gradient(135deg,#111111,#2B1B17,#4A1F3D);
-
-    color: white;
-
+.stApp{
+    background: linear-gradient(135deg,#F8BBD0,#E1BEE7,#BBDEFB);
+    color:#212121;
 }
 
 /* Hide Streamlit */
 
-#MainMenu {
-    visibility: hidden;
+#MainMenu{
+    visibility:hidden;
 }
 
-footer {
-    visibility: hidden;
+footer{
+    visibility:hidden;
 }
 
-header {
-    visibility: hidden;
+header{
+    visibility:hidden;
 }
 
-/* =========================================
-   Title
-========================================= */
+/* Container */
+
+.block-container{
+    padding-top:2rem;
+    padding-bottom:2rem;
+}
+
+/* ==========================================
+   Main Title
+========================================== */
 
 .main-title{
 
@@ -34,15 +38,11 @@ header {
 
     font-size:42px;
 
-    font-weight:bold;
+    font-weight:800;
 
-    color:#FFD54F;
+    color:#1565C0;
 
-    margin-top:15px;
-
-    margin-bottom:5px;
-
-    letter-spacing:1px;
+    margin-bottom:8px;
 
 }
 
@@ -50,7 +50,7 @@ header {
 
     text-align:center;
 
-    color:#FFB6C1;
+    color:#6A1B9A;
 
     font-size:18px;
 
@@ -58,85 +58,105 @@ header {
 
 }
 
-/* =========================================
+/* ==========================================
    Sidebar
-========================================= */
+========================================== */
 
 section[data-testid="stSidebar"]{
 
-    background:#241814;
+    background:#ffffff;
 
-    border-right:3px solid #2196F3;
+    border-right:4px solid #1976D2;
 
 }
 
 section[data-testid="stSidebar"] *{
 
-    color:white;
+    color:#212121;
 
 }
 
-/* =========================================
+/* ==========================================
    Headings
-========================================= */
+========================================== */
 
 h1,h2,h3,h4{
 
     color:#FFD54F;
 
+    font-weight:700;
+
 }
 
-/* =========================================
+/* ==========================================
+   White Cards
+========================================== */
+
+[data-testid="stMetric"]{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    border:2px solid black;
+
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+
+}
+
+/* ==========================================
    Upload Box
-========================================= */
+========================================== */
 
 [data-testid="stFileUploader"]{
 
-    background:#3A2A26;
+    background:white;
 
-    border:2px dashed #2196F3;
+    border:2px dashed #1976D2;
 
     border-radius:15px;
 
-    padding:15px;
+    padding:18px;
 
 }
 
-/* =========================================
+/* ==========================================
    Text Area
-========================================= */
+========================================== */
 
 textarea{
 
-    background:#2D2321 !important;
+    background:white !important;
 
-    color:white !important;
+    color:black !important;
 
-    border:2px solid #2196F3 !important;
+    border:2px solid #1976D2 !important;
 
     border-radius:12px !important;
 
 }
 
-/* =========================================
+/* ==========================================
    Input Box
-========================================= */
+========================================== */
 
 input{
 
-    background:#2D2321 !important;
+    background:white !important;
 
-    color:white !important;
+    color:black !important;
 
 }
 
-/* =========================================
+/* ==========================================
    Buttons
-========================================= */
+========================================== */
 
 .stButton>button{
 
-    background:#2196F3;
+    background:black;
 
     color:white;
 
@@ -148,9 +168,9 @@ input{
 
     font-weight:bold;
 
-    height:50px;
-
     width:100%;
+
+    height:52px;
 
     transition:0.3s;
 
@@ -158,75 +178,80 @@ input{
 
 .stButton>button:hover{
 
-    background:#1565C0;
+    background:#333333;
 
     transform:scale(1.02);
 
 }
 
-/* =========================================
+/* ==========================================
    Download Button
-========================================= */
+========================================== */
 
 .stDownloadButton>button{
 
-    background:#2196F3;
+    background:black;
 
     color:white;
+
+    border:none;
 
     border-radius:12px;
 
     font-weight:bold;
 
-    border:none;
-
 }
 
 .stDownloadButton>button:hover{
 
-    background:#0D47A1;
+    background:#333333;
+   /* ==========================================
+   Resume Cards
+========================================== */
+
+.resume-card{
+
+    background:white;
+
+    color:black;
+
+    border-radius:18px;
+
+    border:2px solid black;
+
+    padding:20px;
+
+    margin-top:15px;
+
+    margin-bottom:15px;
+
+    box-shadow:0px 8px 20px rgba(0,0,0,0.15);
 
 }
 
-/* =========================================
-   Yellow Cards
-========================================= */
+/* ==========================================
+   Expander
+========================================== */
 
-[data-testid="stMetric"]{
+details{
 
-    background:#FFE082;
+    background:white;
 
     color:black;
 
     border-radius:15px;
 
-    padding:15px;
-
-    box-shadow:0px 5px 15px rgba(0,0,0,0.35);
-
-    border-left:6px solid #2196F3;
-
-}
-
-/* =========================================
-   Expander
-========================================= */
-
-details{
-
-    background:#FFE082;
-
-    color:black;
-
-    border-radius:12px;
+    border:2px solid black;
 
     padding:12px;
 
+    margin-top:10px;
+
 }
 
-/* =========================================
-   Alert Boxes
-========================================= */
+/* ==========================================
+   Success Message
+========================================== */
 
 div[data-baseweb="notification"]{
 
@@ -234,21 +259,37 @@ div[data-baseweb="notification"]{
 
 }
 
-/* =========================================
+/* ==========================================
+   Divider
+========================================== */
+
+hr{
+
+    border:1px solid #1976D2;
+
+    margin-top:20px;
+
+    margin-bottom:20px;
+
+}
+
+/* ==========================================
    Tables
-========================================= */
+========================================== */
 
 table{
 
-    background:#FFE082;
+    background:white;
 
     color:black;
+
+    border-radius:12px;
 
 }
 
 th{
 
-    background:#2196F3;
+    background:#1976D2;
 
     color:white;
 
@@ -256,100 +297,13 @@ th{
 
 td{
 
-    background:#FFF3CD;
+    background:#FFFFFF;
 
     color:black;
 
 }
 
-/* =========================================
-   Horizontal Line
-========================================= */
-
-hr{
-
-    border:1px solid #2196F3;
-
-}
-
-/* =========================================
-   Hyperlinks
-========================================= */
-
-a{
-
-    color:#FFD54F;
-
-}
-
-a:hover{
-
-    color:#64B5F6;
-
-}
-
-/* =========================================
-   Plotly Charts
-========================================= */
-
-.js-plotly-plot{
-
-    background:white;
-
-    border-radius:15px;
-
-    padding:10px;
-
-}
-
-/* =========================================
-   Scrollbar
-========================================= */
-
-::-webkit-scrollbar{
-
-    width:10px;
-
-}
-
-::-webkit-scrollbar-track{
-
-    background:#241814;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-    background:#2196F3;
-
-    border-radius:20px;
-
-}
-
-::-webkit-scrollbar-thumb:hover{
-
-    background:#1565C0;
-
-}
-
-/* =========================================
-   Containers
-========================================= */
-
-.block-container{
-
-    padding-top:2rem;
-
-    padding-bottom:2rem;
-
-}
-
-/* =========================================
-   Markdown
-========================================= */
-
-.element-container{
-
-    margin-bottom:10px;
+/* ==========================================
+   Resume
 
 }
