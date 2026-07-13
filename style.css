@@ -94,7 +94,7 @@ h1,h2,h3,h4{
 
 [data-testid="stMetric"]{
 
-    background:white;
+    background:black;
 
     border-radius:18px;
 
@@ -112,7 +112,7 @@ h1,h2,h3,h4{
 
 [data-testid="stFileUploader"]{
 
-    background:white;
+    background:black;
 
     border:2px dashed #1976D2;
 
