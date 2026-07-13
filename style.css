@@ -1,78 +1,91 @@
-/* =================================================
-   Resume Scanner Bot Premium UI v3
-================================================= */
+/* =====================================================
+   Resume Scanner Bot - Premium UI Final Version
+   Gradient + White Cards + Text Visibility Fixed
+===================================================== */
 
 
-/* Background */
+/* =========================
+   APP BACKGROUND
+========================= */
 
-.stApp{
+.stApp {
 
-    background:linear-gradient(
+    background: linear-gradient(
         135deg,
         #F8BBD0,
         #E1BEE7,
         #BBDEFB
     );
 
-}
+    font-family: "Segoe UI", sans-serif;
 
-
-/* Hide Streamlit */
-
-#MainMenu{
-    display:none;
-}
-
-header{
-    display:none;
-}
-
-footer{
-    display:none;
 }
 
 
 
-/* Main Area */
+/* =========================
+   HIDE STREAMLIT ELEMENTS
+========================= */
 
-.block-container{
+
+#MainMenu {
+    visibility:hidden;
+}
+
+
+header {
+    visibility:hidden;
+}
+
+
+footer {
+    visibility:hidden;
+}
+
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+
+.block-container {
 
     padding-top:2rem;
 
-    max-width:1200px;
+    padding-bottom:3rem;
 
 }
 
 
 
-/* =================================================
+/* =========================
    GLOBAL TEXT FIX
-================================================= */
+========================= */
 
 
-.stApp,
-.stApp p,
-.stApp span,
-.stApp div,
-.stApp label,
-.stApp li,
-.stApp h1,
-.stApp h2,
-.stApp h3,
-.stApp h4{
+.stApp * {
 
-    color:#111111 !important;
+    color:#111111;
 
 }
 
 
 
-/* =================================================
-   Titles
-================================================= */
+p, span, label, div {
+
+    color:#111111;
+
+}
 
 
-.main-title{
+
+/* =========================
+   TITLE
+========================= */
+
+
+.main-title {
 
     text-align:center;
 
@@ -85,7 +98,8 @@ footer{
 }
 
 
-.sub-title{
+
+.sub-title {
 
     text-align:center;
 
@@ -93,16 +107,18 @@ footer{
 
     color:#6A1B9A !important;
 
+    margin-bottom:30px;
+
 }
 
 
 
-/* =================================================
- Sidebar
-================================================= */
+/* =========================
+   SIDEBAR
+========================= */
 
 
-section[data-testid="stSidebar"]{
+section[data-testid="stSidebar"] {
 
     background:white;
 
@@ -111,7 +127,7 @@ section[data-testid="stSidebar"]{
 }
 
 
-section[data-testid="stSidebar"] *{
+section[data-testid="stSidebar"] * {
 
     color:#111111 !important;
 
@@ -119,9 +135,24 @@ section[data-testid="stSidebar"] *{
 
 
 
-/* =================================================
-   ALL WHITE CARDS FIX
-================================================= */
+/* =========================
+   HEADINGS
+========================= */
+
+
+h1,h2,h3,h4,h5 {
+
+    color:#FFD54F !important;
+
+    font-weight:800;
+
+}
+
+
+
+/* =========================
+   ALL CARDS
+========================= */
 
 
 div[data-testid="stVerticalBlockBorderWrapper"],
@@ -130,18 +161,20 @@ div[data-testid="stExpander"],
 
 div[data-testid="stMetric"],
 
-.stAlert,
-
-.element-container{
+.element-container {
 
 
     background:white !important;
 
-    border-radius:20px !important;
 
-    border:2px solid #000000;
+    border-radius:20px;
 
-    padding:15px;
+
+    border:2px solid black;
+
+
+    padding:18px;
+
 
     box-shadow:
     0px 8px 25px rgba(0,0,0,0.18);
@@ -151,13 +184,13 @@ div[data-testid="stMetric"],
 
 
 
-/* Card Text */
+/* Card Content Visibility */
 
 
 div[data-testid="stVerticalBlockBorderWrapper"] *,
-div[data-testid="stMetric"] *,
 div[data-testid="stExpander"] *,
-.element-container *{
+div[data-testid="stMetric"] *,
+.element-container * {
 
 
     color:#111111 !important;
@@ -166,39 +199,46 @@ div[data-testid="stExpander"] *,
 
 
 
-/* =================================================
-   Resume Result Card
-================================================= */
+/* =========================
+   RESUME RESULT CARD
+========================= */
 
 
-.resume-card{
+.resume-card {
 
 
-    background:white !important;
+    background:white;
+
 
     color:#111111 !important;
+
 
     border:3px solid black;
 
+
     border-radius:20px;
+
 
     padding:25px;
 
+
     margin:20px 0;
 
+
     box-shadow:
-    0px 10px 30px rgba(0,0,0,0.2);
+    0px 10px 30px rgba(0,0,0,0.20);
+
 
 }
 
 
 
-.resume-card p,
-.resume-card span,
-.resume-card li,
 .resume-card h1,
 .resume-card h2,
-.resume-card h3{
+.resume-card h3,
+.resume-card p,
+.resume-card span,
+.resume-card li {
 
 
     color:#111111 !important;
@@ -207,26 +247,31 @@ div[data-testid="stExpander"] *,
 
 
 
-/* =================================================
- Upload Box
-================================================= */
+/* =========================
+   FILE UPLOADER
+========================= */
 
 
-[data-testid="stFileUploader"]{
+[data-testid="stFileUploader"] {
 
 
     background:white !important;
+
 
     border:3px dashed #1976D2;
 
+
     border-radius:20px;
+
 
     padding:20px;
 
+
 }
 
 
-[data-testid="stFileUploader"] *{
+
+[data-testid="stFileUploader"] * {
 
 
     color:#111111 !important;
@@ -235,72 +280,90 @@ div[data-testid="stExpander"] *,
 
 
 
-/* =================================================
- Text Area
-================================================= */
+/* =========================
+   TEXT AREA
+========================= */
 
 
-textarea{
+textarea {
 
 
     background:white !important;
 
+
     color:#111111 !important;
+
 
     border:2px solid #1565C0 !important;
 
+
     border-radius:15px !important;
 
-    font-size:16px !important;
 
-}
-
-
-textarea::placeholder{
-
-    color:#555 !important;
+    font-size:16px;
 
 }
 
 
 
-/* =================================================
- Inputs
-================================================= */
+textarea::placeholder {
 
 
-input{
+    color:#666666 !important;
+
+}
+
+
+
+/* =========================
+   INPUT BOX
+========================= */
+
+
+input {
 
 
     background:white !important;
 
+
     color:#111111 !important;
 
+
     border-radius:12px !important;
+
 
 }
 
 
 
-/* =================================================
- Buttons
-================================================= */
+/* =========================
+   BUTTONS
+========================= */
 
 
-.stButton button{
+.stButton > button {
 
 
     background:black !important;
 
+
     color:white !important;
+
+
+    width:100%;
+
 
     height:55px;
 
+
     border-radius:15px;
+
 
     font-size:18px;
 
+
     font-weight:800;
+
 
     border:none;
 
@@ -308,61 +371,121 @@ input{
 }
 
 
-.stButton button:hover{
+
+.stButton > button:hover {
 
 
     background:#333333 !important;
 
+
     transform:scale(1.03);
+
 
 }
 
 
 
-/* Download */
+/* =========================
+   DOWNLOAD BUTTON
+========================= */
 
 
-.stDownloadButton button{
+.stDownloadButton > button {
 
 
     background:black !important;
 
+
     color:white !important;
 
+
     border-radius:15px;
+
+
+    font-weight:bold;
+
 
 }
 
 
 
-/* =================================================
- Tables
-================================================= */
+.stDownloadButton > button:hover {
 
 
-table{
+    background:#333333 !important;
+
+
+}
+
+
+
+/* =========================
+   METRIC BOX
+========================= */
+
+
+[data-testid="stMetric"] {
 
 
     background:white !important;
 
-    border-radius:15px;
 
 }
 
 
-th{
 
-    background:#1565C0 !important;
+[data-testid="stMetricValue"] {
 
-    color:white !important;
+
+    color:#1565C0 !important;
+
+
+    font-size:35px;
+
+
+    font-weight:900;
+
 
 }
 
 
-td{
+
+[data-testid="stMetricLabel"] {
+
+
+    color:#111111 !important;
+
+
+}
+
+
+
+/* =========================
+   EXPANDER
+========================= */
+
+
+details {
 
 
     background:white !important;
+
+
+    border:2px solid black;
+
+
+    border-radius:15px;
+
+
+    padding:15px;
+
+
+}
+
+
+
+details * {
+
 
     color:#111111 !important;
 
@@ -370,31 +493,36 @@ td{
 
 
 
-/* =================================================
- AI Response Box
-================================================= */
+/* =========================
+   AI OUTPUT BOX
+========================= */
 
 
-.ai-box{
+.ai-box {
 
 
     background:white;
 
+
     border-left:8px solid #6A1B9A;
+
 
     border-radius:20px;
 
+
     padding:25px;
 
-    color:#111111;
 
     box-shadow:
-    0px 10px 25px rgba(0,0,0,0.2);
+    0px 10px 25px rgba(0,0,0,0.20);
+
 
 }
 
 
-.ai-box *{
+
+.ai-box * {
+
 
     color:#111111 !important;
 
@@ -402,40 +530,86 @@ td{
 
 
 
-/* =================================================
- Metrics
-================================================= */
+/* =========================
+   TABLES
+========================= */
 
 
-[data-testid="stMetricValue"]{
-
-    color:#1565C0 !important;
-
-    font-size:35px;
-
-    font-weight:900;
-
-}
+table {
 
 
-[data-testid="stMetricLabel"]{
+    background:white !important;
 
-    color:#111111 !important;
 
-    font-weight:bold;
+    border-radius:15px;
+
 
 }
 
 
 
-/* =================================================
- Success / Error / Info
-================================================= */
+th {
 
 
-div[data-baseweb="notification"] *{
+    background:#1976D2 !important;
+
+
+    color:white !important;
+
+
+}
+
+
+
+td {
+
+
+    background:white !important;
 
 
     color:#111111 !important;
+
+
+}
+
+
+
+/* =========================
+   ALERTS
+========================= */
+
+
+div[data-baseweb="notification"] {
+
+
+    border-radius:15px;
+
+
+}
+
+
+div[data-baseweb="notification"] * {
+
+
+    color:#111111 !important;
+
+
+}
+
+
+
+/* =========================
+   DIVIDER
+========================= */
+
+
+hr {
+
+
+    border:1px solid #1976D2;
+
+
+    margin:20px 0;
+
 
 }
