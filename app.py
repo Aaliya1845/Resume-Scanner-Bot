@@ -1,155 +1,267 @@
 import streamlit as st
 import os
-from utils.resume_parser import extract_resume_text
-from utils.ats_engine import analyze_resume
 
-# Page configuration
-st.set_page_config(
-    page_title="AI ATS Resume Analyzer",
-    page_icon="📄",
-    layout="wide"
+from utils.pdf_reader import (
+    extract_text_from_pdf,
+    validate_pdf
 )
 
-# Custom CSS
-with open("assets/style.css") as f:
-    st.markdown(
-        f"<style>{f.read()}</style>",
-        unsafe_allow_html=True
+from utils.similarity import (
+    calculate_similarity,
+    ats_score,
+    get_grade,
+    get_eligibility,
+    score_summary
+)
+
+from utils.analyzer import (
+    analyze_resume,
+    predict_job_role,
+    improvement_suggestions
+)
+
+from utils.charts import ats_gauge
+
+from utils.report_generator import generate_pdf_report
+
+
+st.set_page_config(
+    page_title="Resume Scanner Bot",
+    layout="wide",
+    page_icon="📄"
+)
+
+
+if os.path.exists("style.css"):
+
+    with open("style.css", "r", encoding="utf-8") as f:
+
+        st.markdown(
+            f"<style>{f.read()}</style>",
+            unsafe_allow_html=True
+        )
+
+
+st.markdown(
+    '<div class="main-title">Resume Scanner Bot</div>',
+    unsafe_allow_html=True
+)
+
+st.markdown(
+    '<div class="sub-title">AI Powered ATS Resume Analyzer</div>',
+    unsafe_allow_html=True
+)
+
+
+with st.sidebar:
+
+    st.header("Resume Scanner")
+
+    st.write(
+        "Upload your Resume PDF and paste the Job Description to check ATS compatibility."
     )
 
 
-# Header
-st.markdown("""
-<div class="hero">
-    <h1>AI ATS Resume Analyzer</h1>
-    <p>Analyze your resume, improve ATS score and get AI-powered suggestions.</p>
-</div>
-""", unsafe_allow_html=True)
-
-
-# Upload Section
-st.markdown('<div class="card">', unsafe_allow_html=True)
-
-st.subheader("Upload Resume")
-
 resume_file = st.file_uploader(
-    "Upload your resume (PDF)",
+    "📄 Upload Resume (PDF)",
     type=["pdf"]
 )
 
 job_description = st.text_area(
-    "Paste Job Description",
-    height=200,
-    placeholder="Enter the job description here..."
+    "💼 Paste Job Description",
+    height=220
 )
 
-st.markdown('</div>', unsafe_allow_html=True)
 
+if st.button(
+    "Analyze Resume",
+    type="primary"
+):
 
-# Analyze Button
-if st.button("Analyze Resume"):
+    if not resume_file:
 
-    if resume_file is None:
-        st.warning("Please upload your resume.")
+        st.error("Please upload your Resume.")
 
-    elif job_description.strip() == "":
-        st.warning("Please enter job description.")
+        st.stop()
+
+    if not job_description.strip():
+
+        st.error("Please paste the Job Description.")
+
+        st.stop()
+
+    valid, message = validate_pdf(resume_file)
+
+    if not valid:
+
+        st.error(message)
+
+        st.stop()
+
+    resume_text = extract_text_from_pdf(
+        resume_file
+    )
+
+    similarity = calculate_similarity(
+        resume_text,
+        job_description
+    )
+
+    ats = ats_score(similarity)
+
+    grade = get_grade(ats)
+
+    eligibility = get_eligibility(ats)
+
+    summary = score_summary(ats)
+
+    analysis = analyze_resume(
+        resume_text,
+        job_description
+    )
+
+    predicted_role = predict_job_role(
+        resume_text
+    )
+
+    suggestions = improvement_suggestions(
+        resume_text,
+        analysis["missing_keywords"]
+    )
+
+    st.plotly_chart(
+        ats_gauge(ats),
+        use_container_width=True
+    )
+
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+
+        st.metric(
+            "ATS Score",
+            f"{ats}%"
+        )
+
+    with col2:
+
+        st.metric(
+            "Resume Grade",
+            grade
+        )
+
+    with col3:
+
+        st.metric(
+            "Eligibility",
+            eligibility
+        )
+
+    st.subheader("Summary")
+
+    st.info(summary)
+
+    st.subheader("Predicted Job Role")
+
+    st.success(predicted_role)
+
+    st.divider()
+    st.subheader("✅ Matched Skills")
+
+    if analysis["matched_keywords"]:
+
+        for skill in analysis["matched_keywords"]:
+
+            st.markdown(f"✔ **{skill}**")
 
     else:
 
-        with st.spinner("Analyzing resume..."):
-
-            resume_text = extract_resume_text(resume_file)
-
-            result = analyze_resume(
-                resume_text,
-                job_description
-            )
+        st.info("No matched skills found.")
 
 
-        st.success("Analysis Completed!")
+    st.divider()
 
 
-        # Score Card
-        st.markdown("""
-        <div class="card">
-        <h2>ATS Score</h2>
-        </div>
-        """, unsafe_allow_html=True)
+    st.subheader("❌ Missing Skills")
+
+    if analysis["missing_keywords"]:
+
+        for skill in analysis["missing_keywords"]:
+
+            st.markdown(f"✖ **{skill}**")
+
+    else:
+
+        st.success("No missing skills found.")
 
 
-        score = result["score"]
-
-        st.progress(score / 100)
-
-        st.markdown(
-            f"""
-            <div class="score">
-                {score}%
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+    st.divider()
 
 
-        # Match Keywords
-        col1, col2 = st.columns(2)
+    st.subheader("💡 Improvement Suggestions")
 
-        with col1:
+    if suggestions:
 
-            st.markdown("""
-            <div class="card">
-            <h3>Matched Skills</h3>
-            """,
-            unsafe_allow_html=True)
+        for suggestion in suggestions:
 
-            for skill in result["matched_skills"]:
-                st.write("✅", skill)
+            st.markdown(f"• {suggestion}")
 
-            st.markdown("</div>",
-            unsafe_allow_html=True)
+    else:
+
+        st.success("Your resume looks good.")
 
 
-
-        with col2:
-
-            st.markdown("""
-            <div class="card">
-            <h3>Missing Skills</h3>
-            """,
-            unsafe_allow_html=True)
-
-            for skill in result["missing_skills"]:
-                st.write("❌", skill)
-
-            st.markdown("</div>",
-            unsafe_allow_html=True)
+    st.divider()
 
 
+    st.subheader("📄 Extracted Resume")
 
-        # Suggestions
-
-        st.markdown("""
-        <div class="card">
-        <h3>AI Improvement Suggestions</h3>
-        """,
-        unsafe_allow_html=True)
-
-
-        for suggestion in result["suggestions"]:
-            st.write("💡", suggestion)
+    st.text_area(
+        "Resume Content",
+        value=resume_text,
+        height=700,
+        disabled=True
+    )
 
 
-        st.markdown(
-            "</div>",
-            unsafe_allow_html=True
-        )
+    st.divider()
 
 
-# Footer
-st.markdown("""
-<div class="footer">
-AI ATS Resume Analyzer | Built with Python + Streamlit
-</div>
-""",
-unsafe_allow_html=True)
+    pdf_path = generate_pdf_report(
+
+        "resume_report.pdf",
+
+        ats,
+
+        grade,
+
+        predicted_role,
+
+        analysis["matched_keywords"],
+
+        analysis["missing_keywords"],
+
+        [],
+
+        suggestions,
+
+        summary
+
+    )
+
+
+    with open(pdf_path, "rb") as pdf_file:
+
+        st.download_button(
+
+            label="📥 Download ATS Report",
+
+            data=pdf_file,
+
+            file_name="Resume_Report.pdf",
+
+            mime="application/pdf",
+
+            use_container_width=True
+
+)
