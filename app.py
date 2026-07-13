@@ -156,16 +156,7 @@ if st.button(
             "Eligibility",
             eligibility
         )
-
-    st.subheader("Summary")
-
-    st.info(summary)
-
-    st.subheader("Predicted Job Role")
-
-    st.success(predicted_role)
-
-    st.divider()
+    
     st.subheader("✅ Matched Skills")
 
     if analysis["matched_keywords"]:
