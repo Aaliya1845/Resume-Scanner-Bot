@@ -172,7 +172,6 @@ if st.button(
 
     st.divider()
 
-
     st.subheader("❌ Missing Skills")
 
     if analysis["missing_keywords"]:
@@ -184,22 +183,6 @@ if st.button(
     else:
 
         st.success("No missing skills found.")
-
-
-    st.divider()
-
-
-    st.subheader("💡 Improvement Suggestions")
-
-    if suggestions:
-
-        for suggestion in suggestions:
-
-            st.markdown(f"• {suggestion}")
-
-    else:
-
-        st.success("Your resume looks good.")
 
 
     st.divider()
